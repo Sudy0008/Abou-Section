@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <style>
+    .header {
+    background-image: linear-gradient(to right, #00093c, #2d0b00);
+    padding: 15px 30px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4a017;
+    text-transform: uppercase;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 50px; /* Increased gap to prevent overlap between nav links */
+}
+
+.nav-menu ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-menu ul li a:hover {
+    color: #d4a017;
+}
+
+.nav-menu ul li a.active {
+    color: var(--white);
+}
+
+.nav-menu ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6200;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjusted gap to ensure proper spacing for the button */
+}
+
+.btn {
+    align-items: center;
+    background-color: transparent;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--ff-dm-sans);
+    font-size: 1rem;
+    font-weight: var(--fw-700);
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    border: 0;
+    padding: 0.5rem 1rem; /* Adjusted padding to reduce button width */
+}
+
+.btn:before {
+    background-color: var(--white);
+    content: "";
+    display: inline-block;
+    height: 1px;
+    margin-right: 10px;
+    transition: all 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 0;
+}
+
+.btn:hover:before {
+    background-color: var(--white);
+    width: 3rem;
+}
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-image: linear-gradient(to right, #00093c, #2d0b00);
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    background-image: linear-gradient(to right, #00093c, #2d0b00);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-image: linear-gradient(to right, #00093c, #2d0b00);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      color: #333;
+    }
+    
+
+    header {
+      background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header h1,
+    header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .intro img {
+      flex: 1;
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .intro .text {
+      flex: 2;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .features {
+      margin-top: 60px;
+    }
+
+    .features h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .feature-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .feature-card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #0056b3;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .feedback {
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .feedback h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .testimonial-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-scroll {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding-bottom: 10px;
+    }
+
+    .testimonial-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial {
+      flex: 0 0 300px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      color: #555;
+    }
+
+    .testimonial h4 {
+      margin-top: 10px;
+      color: #0056b3;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 40px;
+      height: 60px;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s;
+    }
+
+    .scroll-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .scroll-left {
+      left: 0;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .scroll-right {
+      right: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    .enquiry-section {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .enquiry-img {
+      flex: 1;
+      max-width: 400px;
+      transform: rotateY(20deg);
+    }
+
+    .enquiry-form {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .enquiry-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .enquiry-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .enquiry-form input, .enquiry-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .enquiry-form button {
+      background: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .thank-you {
+      background-color: #e6f2ff;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-wrapper {
+    width: 100%;
+    position: relative;
+    min-height: 100px; /* Ensures the wrapper takes up space */
+}
+
+.site-footer {
+    width: 100%;
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    color: #fff;
+    padding: 100px 0 30px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.row {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col {
+    flex-basis: 22%;
+    padding: 10px;
+}
+
+.col h3 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.email-id {
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 12px;
+    /* margin-left: -35px; */
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+form .fa-regular {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+form input {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+form button .fa-solid {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.social-icon .fa-brands {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.underline {
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span {
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+
+@keyframes moving {
+    0% {
+        left: -20px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-footer {
+        border-top-left-radius: 0;
+    }
+    .col {
+        flex-basis: 100%;
+    }
+}
+
+.footer-wrapper {
+    margin-top: auto;
+}
+
+
+    
+
+    .social-icons a:hover {
+      color: #00acee;
+    }
+
+    @media (max-width: 768px) {
+      .intro {
+        flex-direction: column;
+      }
+
+      .intro-img {
+        transform: none;
+      }
+
+      .scroll-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+</script>
+        <div class="logo">
+            <img src="https://png.pngtree.com/png-clipart/20220616/original/pngtree-school-admission-open-now-banner-png-image-png-image_8081441.png" alt="logo">
+            <span class="logo-text">Bangalore Admission Hub</span>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#engineering-colleges" class="dropbtn">Colleges</a>
+                    <div class="dropdown-content">
+                        <a href="#">Engineering</a>
+                        <a href="#">Medical</a>
+                        <a href="#">Allied Science</a>
+                        <a href="#">Architecture</a>
+                        <a href="#">BCA / MCA</a>
+                        <a href="#">Commerce College</a>
+                        <a href="#">Dental</a>
+                        <a href="#">Law</a>
+                        <a href="#">MBA</a>
+                        <a href="#">Nursing</a>
+                        <a href="#">Top Colleges & Universities</a>
+                        <a href="#">Pune</a>
+                    </div>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="search-icon">🔍</a>
+            <a href="tel: +918118935934">+91 8118935934</a>
+        </div>
+    </div>
+</header>
+  <header>
+    <h1>About Us</h1>
+    <p>End to End Education services ranging from Education Counseling,<br> College Selections, Universities Applications, to <br>Direct Admission in Management Quota!</p>
+  </header>
+  
+
+  <div class="container">
+    <section class="intro">
+      <img src="https://e0.pxfuel.com/wallpapers/791/788/desktop-wallpaper-college-student-hq-stock-on-unsplash-university-students.jpg" alt="Mission">
+      <div class="text">
+        <h2>Our <strong>Mission</strong></h2>
+        <p>At Bangalore Admission Hub, our mission is to create a seamless and empowering journey for students as they embark on their path to higher education. We are committed to delivering personalized, reliable, and transparent counseling services that resonate with students’ goals and aspirations. From initial consultations to final college admissions, our dedicated team provides unwavering support, ensuring every student is guided towards a future filled with opportunity and success. With extensive industry insight and a student-first approach, we strive to make education accessible, meaningful, and a gateway to lifelong achievements for every learner we assist.</p>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Counseling">
+          <h3>Expert Counseling</h3>
+          <p>Personalized sessions to help students choose the best-fit career path and institution.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Direct Admission">
+          <h3>Direct Admission</h3>
+          <p>Assistance in securing admission through management quota and merit-based processes.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Documentation">
+          <h3>Complete Documentation</h3>
+          <p>Support for application filling, SOP, LORs, and academic transcripts.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/901/901094.png" alt="Visa Support">
+          <h3>Visa & Travel Help</h3>
+          <p>End-to-end guidance for visa applications, travel planning, and stay options.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.7wBgzdGJAhF8bPFUfHUuNQHaHa&pid=Api&P=0&h=180" alt="Support">
+          <h3>24x7 Support</h3>
+          <p>Always available for queries and assistance throughout your journey.</p>
+        </div>
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Career Guidance">
+          <h3>Career Guidance</h3>
+          <p>Plan your career path with our skilled advisors and placement tie-ups.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="feedback">
+      <h2>What Our Students Say</h2>
+      <button class="scroll-btn scroll-left" onclick="scrollTestimonials(-1)">&#10094;</button>
+      <div class="testimonial-wrapper">
+        <div class="testimonial-scroll" id="testimonialTrack">
+          <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Student 1">
+            <p>"I was overwhelmed with choices, but the personalized support I received made everything clear. I got into my dream college!"</p>
+            <h4>Priya Sharma</h4>
+          </div>
+          <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Student 2">
+            <p>"The team helped me with every step, from selecting the college to getting admitted without any hassle."</p>
+            <h4>Rohit Verma</h4>
+          </div>
+          <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Student 3">
+            <p>"Their guidance on scholarships really helped me manage expenses. Highly recommended!"</p>
+            <h4>Ananya Singh</h4>
+          </div>
+          <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Student 4">
+            <p>"Excellent service! They really care about the student's success."</p>
+            <h4>Arjun Mehta</h4>
+          </div>
+          <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="Student 5">
+            <p>"I'm thankful for the team's dedication. They made the admission process seamless and stress-free."</p>
+            <h4>Sneha Rao</h4>
+          </div>
+        </div>
+      </div>
+      <button class="scroll-btn scroll-right" onclick="scrollTestimonials(1)">&#10095;</button>
+    </section>
+
+  </div>
+
+  <section class="enquiry-section">
+    <img class="enquiry-img" src="https://tse1.mm.bing.net/th?id=OIP.nm66I1yFxCEbUAdOLG_P5wHaEK&pid=Api&P=0&h=180" alt="3D Form">
+    <div class="enquiry-form">
+      <h2>Enquiry Form</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="4" placeholder="Your Message..."></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</div>
+<div class="thank-you">
+  🎉 Thank you for visiting our page! We look forward to helping you. 🎉
+</div>
+
+
+<div class="footer-wrapper">
+  <div class="site-footer">
+      <div class="row">
+          <div class="col">
+              <h1>About Us</h1>
+              <p>Education Services is a premier education facilitator, headquartered in Bangalore, Karnataka. We have been assisting students to make the right choice with regard to pursuing higher education.</p>
+          </div>
+          <div class="col">
+              <h3>Office <div class="underline"><span></span></div></h3>
+              <p>BDA Complex,1st Floor</p>
+              <p>Jaynagar 4th block,Bangalore,india</p>
+              <p>Karnataka,pin 560011</p>
+              <p class="email-id">help.bangaloreadmissionhub.com</p>
+              <h4>+91 - 8118935934</h4>
+          </div>
+          <div class="col">
+              <h3>Links <div class="underline"><span></span></div></h3>
+              <ul> 
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Services</a></li>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Features</a></li>
+                  <li><a href="">Contact us</a></li>
+              </ul>
+          </div>
+          <div class="col">
+              <h3>Newsletter <div class="underline"><span></span></div></h3>
+              <form>
+                  <i class="fa-regular fa-envelope"></i>
+                  <input type="email" placeholder="Enter Your Email-id"/>
+                  <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+              </form>
+              <div class="social-icon">
+                  <i class="fa-brands fa-facebook"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-whatsapp"></i>
+              </div>
+          </div>
+      </div>
+      <hr>
+      <p class="copyright">copyright @ 2025 - All right Reserved</p>
+  </div>
+</div>
+  
+
+  <script>
+    function scrollTestimonials(direction) {
+      const track = document.getElementById('testimonialTrack');
+      const cardWidth = 320; // card + gap
+      track.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>
+ 
